@@ -12,5 +12,8 @@ dp = Dispatcher(bot) #процесс входящих обновлений. вс
 async def send_welcome(message: types.Message):
     await message.reply('привет')
 
+
 if __name__ == '__main__':
+    import link_checker  # так как затрагиваем только регистрацию
+    link_checker.register_handlers(dp)
     executor.start_polling(dp,skip_updates=True) # запускаем отлавливать события с пропуском обновлений
